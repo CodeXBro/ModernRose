@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Set the body font to Cinzel */
+body {
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+}
