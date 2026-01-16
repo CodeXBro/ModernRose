@@ -4,7 +4,7 @@ module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./src/components/ui/**/*.{js,ts,jsx,tsx}", 
+    "./src/components/ui/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -15,6 +15,8 @@ module.exports = {
         border: "hsl(var(--border))",
         primary: "hsl(var(--primary))",
         "primary-foreground": "hsl(var(--primary-foreground))",
+        destructive: "hsl(var(--destructive))",
+        "destructive-foreground": "hsl(var(--destructive-foreground))",
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -14,10 +14,31 @@ import UserListing from "./pages/user-view/listing";
 import UserCheckout from "./pages/user-view/checkout";
 import CheckAuth from "./components/common/check-auth";
 import UnauthPage from "./pages/unauth-page";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { checkAuth } from "./store/auth-slice";
+import { Skeleton } from "@/components/ui/skeleton";
 
 function App() {
-  const isAuthenticated = false;
-  const user = null;
+  const { user, isAuthenticated, isLoading } = useSelector(
+    (state) => state.auth
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, [dispatch]);
+
+  if (isLoading)
+    return (
+      <div className="flex min-h-screen items-center justify-center flex-col space-y-3">
+        <Skeleton className="h-[125px] w-[250px] bg-black rounded-xl" />
+        <div className="space-y-2">
+          <Skeleton className="h-4 bg-black w-[250px]" />
+          <Skeleton className="h-4 bg-black w-[200px]" />
+        </div>
+      </div>
+    );
 
   return (
     <div className="flex flex-col overflow-hidden bg-white">
